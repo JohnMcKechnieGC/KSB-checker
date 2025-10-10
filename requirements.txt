@@ -1,0 +1,3 @@
+spire.doc
+langchain_core
+langchain_ollama
