@@ -1,4 +1,8 @@
-template = """
+"""
+The output of the model can be altered by experimenting with this prompt template.
+"""
+
+TEMPLATE = """
 An apprentice has submitted the following text as part of their portfolio. Note that
 images were included in the portfolio, but they are not included in the text below.
 Here is the portfolio text:
