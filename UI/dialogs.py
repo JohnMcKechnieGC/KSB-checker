@@ -1,3 +1,8 @@
+"""
+Wrap up TkInter functions for selecting which files to open/save.
+"""
+
+from typing import Literal
 from tkinter import Tk, filedialog
 
 # Use TkInter to open a file dialog
@@ -11,7 +16,7 @@ root.lift()
 root.focus_force()
 
 
-def files_to_open(extension):
+def files_to_open(extension:str) -> tuple[str, ...] | Literal['']:
     """
     Wrapper for the open multiple files dialog
     """
@@ -20,7 +25,7 @@ def files_to_open(extension):
         filetypes=[(f"{extension.upper()} files", f"*.{extension}")]
     )
     if isinstance(filenames, str):
-        return filenames,
+        return (filenames,)
     return filenames
 
 
@@ -39,7 +44,7 @@ def file_to_save(extension: str) -> str:
     """
     Wrapper for the save file dialog
     """
-    filename = filedialog.asksaveasfile(
+    filename = filedialog.asksaveasfilename(
         title=f"Select {extension.upper()} files",
         filetypes=[(f"{extension.upper()} files", f"*.{extension}")]
     )
