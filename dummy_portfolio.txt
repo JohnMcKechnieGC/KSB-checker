@@ -1,0 +1,503 @@
+# L4 Software Developer Portfolio
+
+**Candidate:** Alex Taylor (Software Developer)
+**Organisation:** Northbridge Health Services (NHS supplier, mid-size SaaS company)
+**Team:** “CareFlow” Product Squad (Product, UX, Dev, QA, DevOps, Security)
+**Primary Project Used for Evidence:** *CareFlow Portal* – a web app for clinic staff to manage appointments, patient communications, and reporting.
+**My Role:** Junior Software Developer / Apprentice-style contributor (frontend + backend tasks, testing, data integration, documentation, stakeholder comms).
+
+---
+
+## Evidence Index (quick mapping)
+
+* **Theme 1 (K1, K3, K5):** SDLC stage map + lifecycle roles + agile vs waterfall comparison
+* **Theme 2 (K4, S15, B7):** Stakeholder comms plan + examples (technical + non-technical) + compare methods
+* **Theme 3 (K7):** Reuse decision log + patterns applied + bespoke vs off-the-shelf evaluation
+* **Theme 4A Testing (K12, S5, S13):** Test strategy + test pyramid + executed test types + framework justification
+* **Theme 4B Data (S3, K10):** Data linking example + relational vs non-relational rationale
+* **Theme 5 Policy (K8, S14, B5):** GDPR handling + CI/version control approach + integrity/security examples
+* **Theme 6 Analysis & Design (S2, S8, S9, S17):** UI approach + designs/diagrams + user stories/use cases + secure/maintainable implementation
+* **Theme 7 Team & Independence (B1, B4, B6, B8, B9):** Working independently + collaboration + initiative + curiosity/performance + CPD
+
+---
+
+# Theme 1: Lifecycle and Methodology
+
+## K1: All stages of the Software Development Life Cycle (inputs/outputs)
+
+Below is how we apply SDLC end-to-end for *CareFlow Portal*.
+
+### 1) Discovery / Initiation
+
+* **Purpose:** Confirm problem, value, feasibility, and constraints.
+* **Inputs:** Business goals, current process pain points, initial stakeholder interviews, high-level risks (GDPR, clinical safety).
+* **Activities:** Workshops, problem statements, success metrics, feasibility spikes.
+* **Outputs:** Project brief, high-level scope, risk register draft, success measures (e.g., reduce appointment no-shows by X%).
+
+### 2) Requirements / Analysis
+
+* **Inputs:** Stakeholder needs, regulatory constraints, existing system integrations, user feedback.
+* **Activities:** User stories, use cases, acceptance criteria, data mapping, non-functional requirements (performance, availability, security).
+* **Outputs:** Prioritised backlog, refined scope, NFR list, definition of done, traceability notes (story ↔ requirement).
+
+### 3) Design (Solution + UX/UI)
+
+* **Inputs:** Requirements, constraints (security, maintainability), existing architecture standards, design system.
+* **Activities:** Wireframes, component design, API contracts, ERD updates, threat modelling (lightweight), sequence diagrams.
+* **Outputs:** UX prototypes, architecture diagram, API specs (OpenAPI), database design updates, test approach outline.
+
+### 4) Build / Implementation
+
+* **Inputs:** Approved designs, backlog items, coding standards, branching strategy, CI pipeline.
+* **Activities:** Code changes, peer reviews, unit tests, feature toggles, documentation updates.
+* **Outputs:** Working increments in a feature branch, reviewed PRs, updated docs, build artifacts (container/image/package).
+
+### 5) Verification / Testing
+
+* **Inputs:** Built increments, acceptance criteria, test plan, test data, environments.
+* **Activities:** Unit/integration/system tests, security scanning, performance checks, defect triage.
+* **Outputs:** Test evidence, defect list, release candidate sign-off recommendation.
+
+### 6) Release / Deployment
+
+* **Inputs:** Approved release candidate, change notes, deployment checklist, rollback plan.
+* **Activities:** CI/CD to staging then production, smoke tests, monitoring setup.
+* **Outputs:** Production release, release notes, updated runbooks, monitoring dashboards.
+
+### 7) Operations / Maintenance
+
+* **Inputs:** Logs/metrics, support tickets, user feedback, incident reports.
+* **Activities:** Bug fixes, minor enhancements, dependency patching, performance tuning.
+* **Outputs:** Patches, updated backlog, incident post-mortems, knowledge base updates.
+
+### 8) Retirement / Decommission
+
+* **Inputs:** Product strategy, contract end, replacement system readiness, data retention rules.
+* **Activities:** Migration planning, archival, user comms, access removal.
+* **Outputs:** Archived data (policy-compliant), system shutdown, final report.
+
+✅ **Pass coverage (K1):** All SDLC stages described with what they contain and their inputs/outputs.
+
+---
+
+## K3: Roles & responsibilities in the project lifecycle (and my role)
+
+### Typical roles in my organisation (CareFlow)
+
+* **Sponsor / Business Owner:** Defines outcomes, approves funding, signs off major changes.
+* **Product Owner:** Owns backlog priority, clarifies requirements, accepts stories.
+* **Project Manager (when used):** Timeline, dependencies, RAID logs, stakeholder updates.
+* **Scrum Master / Delivery Lead:** Facilitates ceremonies, removes blockers, continuous improvement.
+* **Business Analyst:** Elicits requirements, maps processes/data, supports acceptance criteria.
+* **UX/UI Designer:** Research, prototypes, accessibility, design system alignment.
+* **Software Engineers:** Implement features, fix defects, code reviews, documentation.
+* **QA/Test Engineer:** Test strategy, test execution, automation, quality gates.
+* **DevOps/Platform:** CI/CD, environments, monitoring, IaC, reliability.
+* **Security/Compliance:** Security reviews, data handling controls, audit support (GDPR).
+* **Support/Operations:** Incident management, customer support loop, runbooks.
+
+### My responsibilities (Junior Developer)
+
+* Deliver backlog items (frontend React components + backend API endpoints)
+* Write unit and integration tests; contribute to automated regression checks
+* Participate in stand-ups, planning, refinement, retros; provide estimates with support
+* Document solutions (README updates, API notes) and handover notes for support
+* Raise risks early (e.g., performance concerns, unclear acceptance criteria)
+* Collaborate with UX (accessibility fixes), QA (test cases), and DevOps (pipeline failures)
+
+✅ **Pass coverage (K3):** Roles/responsibilities across project lifecycle described, including my role.
+
+---
+
+## K5: Similarities & differences between methodologies (Agile vs Waterfall)
+
+### Similarities
+
+* Both aim to deliver working software that meets user needs.
+* Both rely on requirements, design, build, test, and deployment (just structured differently).
+* Both need governance: risk management, stakeholder sign-off points, documentation (amount varies).
+
+### Key differences
+
+**Waterfall**
+
+* **Flow:** Sequential phases; changes later are costly.
+* **Strengths:** Predictable milestones, clear documentation/sign-offs; useful for fixed-scope/regulatory-heavy work.
+* **Risks:** Late feedback; may deliver the “wrong thing” if requirements change or were misunderstood early.
+
+**Agile (Scrum/Kanban)**
+
+* **Flow:** Iterative increments; frequent feedback and reprioritisation.
+* **Strengths:** Early value delivery, adaptable to change, continuous stakeholder engagement.
+* **Risks:** Needs strong product ownership; scope can drift if priorities/definition of done aren’t managed.
+
+### How we apply in practice (hybrid)
+
+* We use **Agile Scrum** for delivery (2-week sprints, demos, backlog refinement).
+* We keep **Waterfall-like governance** for compliance items: security review gates, release approvals, documented DPIA-style checks for sensitive changes.
+
+✅ **Pass coverage (K5):** Similarities and differences described with examples.
+
+---
+
+# Theme 2: Communication
+
+## K4 + S15: Communicate appropriately using different methods and adapt to audiences
+
+### Communication methods I use (chosen by audience & technical level)
+
+* **Non-technical stakeholders (clinic managers, ops leads):**
+
+  * Demos with simple scenarios (“book appointment”, “send reminder”)
+  * One-page summaries with visuals (before/after, benefits, timelines)
+  * Risk/impact wording (“patient comms delayed”, “appointment capacity reduced”)
+* **Technical stakeholders (engineers, QA, DevOps):**
+
+  * Ticket details with acceptance criteria, edge cases, API examples
+  * Architecture diagrams, sequence diagrams, error-handling notes
+  * Pull request descriptions, test evidence, logs/screenshots
+
+### Adaptation examples
+
+* For clinic managers: avoided jargon like “idempotency”; instead explained “if you click twice, it won’t create duplicates”.
+* For engineers: provided exact API contract changes, response codes, and migration notes.
+
+✅ **Pass coverage (K4, S15):** Methods chosen based on stakeholder technical knowledge; demonstrates adapting communication.
+
+---
+
+## B7: Communicated effectively in a variety of situations (technical and non-technical)
+
+### Situation 1 — Incident update (mixed audience)
+
+* **Context:** SMS reminders failing for ~30 minutes.
+* **My comms:**
+
+  * Non-technical Slack update: impact + workaround + next update time
+  * Technical channel: error logs, suspected cause (provider timeout), mitigation (retry + circuit breaker), status of rollback
+* **Outcome:** Reduced confusion, support team aligned, engineers resolved faster.
+
+### Situation 2 — Feature change request (non-technical request, technical translation)
+
+* **Context:** Clinic asked for “bulk reschedule”.
+* **My comms:**
+
+  * Workshop notes in plain language + prototype screens
+  * Converted to user stories with acceptance criteria and edge cases (permissions, audit logging, data retention)
+* **Outcome:** Reduced rework during development and testing.
+
+✅ **Pass coverage (B7):** Demonstrates effective communication in different situations and audiences.
+
+---
+
+## Distinction: Compare/contrast technical vs non-technical communication (benefits)
+
+* **Technical comms**
+
+  * **Type:** precise, structured, testable (API contracts, logs, acceptance criteria, diagrams)
+  * **Benefits:** reduces ambiguity, improves implementation speed, enables reproducible debugging
+* **Non-technical comms**
+
+  * **Type:** outcome-focused, visual, minimal jargon (demos, user journeys, risks/impacts)
+  * **Benefits:** improves alignment, supports decision-making, increases adoption and trust
+* **Key contrast:** technical communication optimises **build correctness**, non-technical communication optimises **business understanding and buy-in**.
+
+✅ **Distinction coverage (K4, S15, B7):** Explicit comparison and benefits.
+
+---
+
+# Theme 3: Reuse
+
+## K7: Design approaches & patterns for reusable solutions (bespoke and off-the-shelf)
+
+### Design approaches used
+
+* **Layered architecture:** UI → service → data access to keep concerns separate and reusable.
+* **Component-based UI:** reusable appointment card, patient banner, and validation components.
+* **API-first contracts:** stable endpoints allow reuse across web app and internal tools.
+
+### Patterns applied (examples)
+
+* **Repository pattern:** consistent data access for appointments/patients.
+* **Strategy pattern:** selectable reminder channels (SMS/email) with a shared interface.
+* **Factory pattern:** building notification payloads based on clinic configuration.
+* **Observer/Event-driven style:** emitting events like `AppointmentUpdated` for downstream processing.
+
+### Reuse options evaluated
+
+* **Off-the-shelf:** notification provider SDK, auth library (OIDC), validation library
+* **Bespoke:** internal shared “audit logging” module to meet compliance requirements
+
+✅ **Pass coverage (K7):** Suggests and applies design approaches/patterns and includes bespoke/off-the-shelf.
+
+---
+
+## Distinction: Evaluate and recommend reusable approaches (K7)
+
+### Example decision: “Build vs Buy” for audit logging
+
+* **Option A (off-the-shelf):** faster initial setup but limited audit schema control, uncertain alignment with NHS reporting expectations, potential vendor lock-in.
+* **Option B (bespoke shared module):** more effort upfront, but consistent audit format, tailored retention policies, easier internal reuse across products.
+
+**Recommendation:** Bespoke shared module for audit logging (compliance-critical) + off-the-shelf for commodity concerns (auth, UI components, standard SDKs).
+**Justification criteria used:** security/compliance fit, long-term maintainability, licensing risk, cost, and integration effort.
+
+✅ **Distinction coverage (K7):** Evaluates options and gives a justified recommendation.
+
+---
+
+# Theme 4A: Testing
+
+## K12: Testing frameworks and methodologies
+
+### Frameworks used
+
+* **Unit testing:** Jest (frontend), xUnit/pytest-style equivalent (backend)
+* **API testing:** Postman collections (plus automated runs in pipeline)
+* **UI testing:** Cypress for end-to-end journeys
+
+### Methodologies used
+
+* **Test Pyramid:** more unit tests, fewer UI tests; integration tests for critical boundaries.
+* **TDD (where suitable):** small utilities and business rules (e.g., appointment clash logic).
+* **BDD-style acceptance:** scenarios written in plain language mapped to test cases.
+
+✅ **Pass coverage (K12):** Basic frameworks and methodologies described.
+
+---
+
+## S5 + S13: Conduct a range of test types and follow methodologies
+
+### Integration testing
+
+* Tested API + database together (create appointment → read back → verify constraints).
+* Used seeded test database and controlled test data.
+
+### System testing
+
+* Full workflow tests in staging: login → search patient → book appointment → send reminder.
+
+### User Acceptance Testing (UAT)
+
+* Ran UAT sessions with clinic admins using scripted scenarios and feedback forms.
+* Captured issues as tickets and agreed acceptance before release.
+
+### Non-functional testing
+
+* **Performance:** basic load checks on “search appointments” endpoint, verified response time targets.
+* **Security:** OWASP-style checks (authz, injection prevention), dependency vulnerability scans.
+
+### Security testing (explicit)
+
+* Verified role-based access controls: receptionist vs manager permissions.
+* Tested for common issues (broken access control, insecure direct object references).
+
+✅ **Pass coverage (S5, S13):** Shows how I conducted integration, system, UAT, non-functional, performance, and security testing while following a test framework/methodology.
+
+---
+
+## Distinction: Evaluate frameworks/methodologies and justify choice (K12)
+
+* Chose **Cypress** over heavier UI tools because it’s fast, developer-friendly, and integrates well with CI for critical user journeys.
+* Emphasised **unit + integration** due to stability and speed (lower flakiness than UI-only testing).
+* Used **risk-based testing** to focus effort on GDPR-sensitive flows (patient search, messaging, audit logs).
+
+✅ **Distinction coverage (K12):** Evaluates options and justifies choices.
+
+---
+
+# Theme 4B: Data
+
+## S3: Link code to data sets
+
+Example: appointment reporting screen
+
+* UI triggers `GET /reports/appointments?from=...&to=...`
+* Backend queries dataset via:
+
+  * ORM/repository for standard queries
+  * Parameterised SQL for complex aggregates (counts by clinic, cancellation rates)
+* Output returned as JSON and displayed in charts/tables.
+
+I also linked code to datasets by:
+
+* Using **CSV extracts** in a sandbox environment to validate reporting logic
+* Writing small scripts to compare expected totals vs database query results
+
+✅ **Pass coverage (S3):** Explains how code was linked to datasets (API → DB/CSV → UI output).
+
+---
+
+## K10: Relational and non-relational database principles and uses
+
+### Relational (PostgreSQL)
+
+* Used for appointments/patients due to:
+
+  * **ACID transactions** (avoid double booking)
+  * **Structured schema** and constraints (foreign keys, uniqueness)
+  * **Normalization** for consistent data and reporting
+  * Indexing for search performance
+
+### Non-relational (MongoDB / Redis-style use cases)
+
+* Considered/used for:
+
+  * **Document store:** flexible schemas for audit/event payloads (if requirements change often)
+  * **Cache (Redis):** speeding up reference lookups and reducing load on primary DB
+* Trade-offs understood:
+
+  * Eventual consistency and schema flexibility vs strict constraints and joins
+
+✅ **Pass coverage (K10):** Applies relational vs non-relational principles to real software tasks.
+
+---
+
+# Theme 5: Policy
+
+## K8 + S14: Organisational policies, GDPR handling, CI/version/source control
+
+### Policies/procedures followed
+
+* **Data classification:** patient data treated as sensitive; minimised access.
+* **GDPR principles applied:** data minimisation, purpose limitation, retention awareness.
+* **Secure storage:** no patient data in logs; redaction where needed.
+* **Access control:** least privilege; audited access for production.
+
+### CI, version, and source control approach
+
+* **Git workflow:** feature branches + pull requests + required reviews
+* **Quality gates in CI:** linting, unit tests, dependency scans, build checks
+* **Release tagging:** versioned releases with notes; rollback supported
+* **Peer review:** ensured security and maintainability checks before merge
+
+✅ **Pass coverage (K8, S14):** Explains relevance of policies and shows following CI/version/source control approaches.
+
+---
+
+## B5: Integrity, ethical/legal/regulatory, protection of personal data, safety and security
+
+How I established an integrity-based approach:
+
+* Flagged any request to “export patient lists” unless purpose + permissions were confirmed.
+* Removed personally identifiable info from debugging screenshots and tickets.
+* Ensured audit logging captured “who/what/when” for sensitive actions.
+* Used secrets management (no credentials in code) and followed secure coding practices.
+
+✅ **Pass coverage (B5):** Clear ethical/legal/regulatory approach protecting personal data, safety, and security.
+
+---
+
+# Theme 6: Analysis and Design
+
+## S2: Approach to developing user interfaces
+
+My UI approach:
+
+* Start with **user journeys** (top tasks) and low-fidelity wireframes
+* Use a **design system** for consistent components and accessibility
+* Validate with quick prototypes before building fully
+* Build responsive layouts and test with keyboard navigation and screen reader checks
+
+✅ **Pass coverage (S2):** Explains my UI development approach.
+
+---
+
+## S8: Simple software designs to communicate understanding
+
+I created and shared:
+
+* High-level architecture diagram (UI → API → DB)
+* Sequence diagram for booking an appointment (including validation + audit event)
+* Component diagram for notification service
+
+✅ **Pass coverage (S8):** Demonstrates designs used to communicate program understanding.
+
+---
+
+## S9: Analysis artefacts (use cases and/or user stories)
+
+Example user story set (bulk reschedule):
+
+* **User story:** “As a clinic manager, I want to reschedule a set of appointments so that staff can handle clinician absence.”
+* **Acceptance criteria:** permissions, audit logs, notifications, conflict detection, confirmation screen.
+* **Use case:** actor = clinic manager; main flow + alternate flows (conflicts, partial failures).
+
+✅ **Pass coverage (S9):** Creates user stories/use cases enabling effective delivery.
+
+---
+
+## S17: Interpret and implement a given design while meeting security & maintainability
+
+Example: implemented UX-provided design for “Patient Search”
+
+* **Security:** enforced role-based access; rate-limited search; prevented information leakage in error messages.
+* **Maintainability:** SOLID principles, reusable components, clear interfaces, consistent logging.
+* **Compliance:** avoided storing search terms containing patient identifiers in analytics logs.
+
+✅ **Pass coverage (S17):** Explains how design was implemented while staying compliant with security and maintainability.
+
+---
+
+# Theme 7: Working independently and as part of a team
+
+## B1: Worked independently to deadlines (responsibility level)
+
+* Took ownership of a reporting feature from refinement → delivery within a sprint.
+* Planned tasks, identified dependencies early (DB index required), and met deadline by splitting work into incremental PRs.
+
+✅ **Pass coverage (B1):** Independent delivery to deadlines with appropriate responsibility.
+
+---
+
+## B4: Worked collaboratively; inclusion & diversity
+
+* Paired with QA to convert clinic feedback into inclusive test scenarios (different clinic sizes, different workflows).
+* Ensured meeting facilitation included remote attendees: shared notes, used async updates, invited input from quieter participants.
+
+✅ **Pass coverage (B4):** Collaboration across roles with inclusive practices.
+
+---
+
+## B6: Responded to unexpected minor changes using initiative (within remit)
+
+* Mid-sprint change: clinic wanted an extra filter in appointment search.
+* I assessed impact, proposed a minimal safe change, updated acceptance criteria, and delivered without breaking existing tests.
+
+✅ **Pass coverage (B6):** Initiative and delivery within remit despite change.
+
+---
+
+## B8: Curiosity about business context; improve performance; determination
+
+* Asked “why” behind requirements (reduce no-shows, reduce admin time), then suggested:
+
+  * default filters aligned to busiest clinic times
+  * performance improvements via indexing and caching
+* Tested improvements and shared before/after metrics with the team.
+
+✅ **Pass coverage (B8):** Curiosity + opportunity exploration + performance improvement mindset.
+
+---
+
+## B9: Continued professional development (CPD)
+
+* Regular learning: short courses (secure coding, SQL performance), internal tech talks, weekly reflection notes.
+* Sought stretch tasks (writing first integration tests, improving CI failures) and requested feedback in retros/1:1s.
+
+✅ **Pass coverage (B9):** Reflects on CPD and independently seeks new opportunities.
+
+---
+
+## Optional “Dummy Artefacts” List (for your checker to parse)
+
+1. **SDLC Stage Map** (K1) – text description with inputs/outputs per stage
+2. **RACI Summary** (K3) – roles/responsibilities list + my responsibilities
+3. **Methodology Comparison Note** (K5) – agile vs waterfall + hybrid approach
+4. **Stakeholder Communication Plan** (K4, S15, B7) – audience → method → example
+5. **Reuse Decision Log** (K7) – patterns + build vs buy evaluation
+6. **Test Strategy & Evidence** (K12, S5, S13) – pyramid + test types + tools used
+7. **Data Integration Note** (S3, K10) – API/ORM/SQL + relational vs non-relational rationale
+8. **Policy & CI/VCS Checklist** (K8, S14, B5) – GDPR + source control + CI gates
+9. **Design Pack** (S2, S8, S9, S17) – wireframes, user stories, diagrams, security notes
+10. **Reflective Log** (B1, B4, B6, B8, B9) – independence, teamwork, initiative, CPD
