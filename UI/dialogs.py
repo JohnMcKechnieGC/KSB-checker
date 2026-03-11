@@ -10,7 +10,7 @@ from tkinter import Tk, filedialog
 root = Tk()
 root.withdraw()
 
-# Bring the root window to the front (even though it's hidden)
+# Bring the root window to the front
 root.attributes('-topmost', True)
 root.lift()
 root.focus_force()
